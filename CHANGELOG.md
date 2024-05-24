@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+- use a nicer background and added consistent fade in/out
+
 ## [0.1.0] - 2024-05-24
 
 ### Added

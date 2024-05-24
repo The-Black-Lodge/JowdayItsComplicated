@@ -49,7 +49,7 @@ local function on_ready()
 
     modutil.mod.Path.Wrap("HideUseButton", function(base, objectId, useTarget, fadeDuration)
         if game.ScreenAnchors["GiftDisplay"] ~= nil then
-            game.Destroy({ Id = game.ScreenAnchors["GiftDisplay"].Id })
+            game.SetAlpha({ Id = game.ScreenAnchors["GiftDisplay"], Fraction = 0, Duration = 0.25 })
         end
         return base(objectId, useTarget, fadeDuration)
     end)
@@ -91,21 +91,25 @@ local function on_reload()
                 end
             end
 
-            local scaleX = math.max(0.1, iconFilled * 0.1)
+            local scaleX = math.max(0.05, iconFilled * 0.05)
             local heart = "{!Icons.RelationshipHeartIcon}"
             local heartString = string.rep(heart, iconFilled)
 
-            game.ScreenAnchors["GiftDisplay"] = game.CreateScreenComponent({
-                Name = "rectangle01",
+            
+            local giftDisplay = game.CreateScreenComponent({
+                Name = "BlankObstacle",
                 X = game.ScreenCenterX,
                 Y = 50
             })
+            local id = giftDisplay.Id
+            game.ScreenAnchors["GiftDisplay"] = id
 
-            -- ui stuff
-            local id = game.ScreenAnchors["GiftDisplay"].Id
+            game.SetColor({ Id = id, Color = {0, 0, 0, 0} })
+            game.SetAlpha({ Id = id, Fraction = 0.8, Duration = 0.1 })
+            game.SetAnimation({ Name = "GUI\\TextBacking", DestinationId = id })
             game.SetScaleX({ Id = id, Fraction = scaleX })
-            game.SetScaleY({ Id = id, Fraction = 0.15 })
-            game.SetColor({ Id = id, Color = { 0, 0, 0, 0.8 } })
+            game.SetScaleY({ Id = id, Fraction = 0.5 })
+
 
             if iconFilled == 0 then
                 local emptyHeart = game.CreateScreenComponent({ Name = "BlankObstacle" })
