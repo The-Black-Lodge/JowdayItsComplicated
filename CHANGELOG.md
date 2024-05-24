@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2024-05-24
+
 ## Changed
+
 - use a nicer background and added consistent fade in/out
 
 ## [0.1.0] - 2024-05-24
@@ -16,5 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.0...HEAD
+[unreleased]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/441651e704a44b443cf1cfe01c4462ef1e4db775...0.1.0
