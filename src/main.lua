@@ -49,7 +49,10 @@ local function on_ready()
 
     modutil.mod.Path.Wrap("HideUseButton", function(base, objectId, useTarget, fadeDuration)
         if game.ScreenAnchors["GiftDisplay"] ~= nil then
-            game.SetAlpha({ Id = game.ScreenAnchors["GiftDisplay"], Fraction = 0, Duration = 0.25 })
+            game.SetAlpha({ Id = game.ScreenAnchors["GiftDisplay"].Id, Fraction = 0, Duration = 0.25 })
+        end
+        if game.ScreenAnchors["EmptyHeart"] ~= nil then
+            game.SetAlpha({ Id = game.ScreenAnchors["EmptyHeart"].Id, Fraction = 0, Duration = 0.25 })
         end
         return base(objectId, useTarget, fadeDuration)
     end)
@@ -95,16 +98,16 @@ local function on_reload()
             local heart = "{!Icons.RelationshipHeartIcon}"
             local heartString = string.rep(heart, iconFilled)
 
-            
+
             local giftDisplay = game.CreateScreenComponent({
                 Name = "BlankObstacle",
                 X = game.ScreenCenterX,
                 Y = 50
             })
             local id = giftDisplay.Id
-            game.ScreenAnchors["GiftDisplay"] = id
+            game.ScreenAnchors["GiftDisplay"] = giftDisplay
 
-            game.SetColor({ Id = id, Color = {0, 0, 0, 0} })
+            game.SetColor({ Id = id, Color = { 0, 0, 0, 0 } })
             game.SetAlpha({ Id = id, Fraction = 0.8, Duration = 0.1 })
             game.SetAnimation({ Name = "GUI\\TextBacking", DestinationId = id })
             game.SetScaleX({ Id = id, Fraction = scaleX })
@@ -113,8 +116,10 @@ local function on_reload()
 
             if iconFilled == 0 then
                 local emptyHeart = game.CreateScreenComponent({ Name = "BlankObstacle" })
+                game.ScreenAnchors["EmptyHeart"] = emptyHeart
+                game.SetAlpha({ Id = emptyHeart.id, Fraction = 0.8, Duration = 0.1 })
                 game.SetAnimation({ Name = "GUI\\Icons\\AphroditeInactive", DestinationId = emptyHeart.Id, Scale = 0.4 })
-                game.Attach({Id = emptyHeart.Id, DestinationId = id})
+                game.Attach({ Id = emptyHeart.Id, DestinationId = id })
             else
                 game.CreateTextBox({
                     Id = id,

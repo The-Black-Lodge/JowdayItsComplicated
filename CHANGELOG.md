@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Fixed
+- empty hearts no longer persist on screen
+
 ## [0.1.2] - 2024-05-24
 
 ## Changed
