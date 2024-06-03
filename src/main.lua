@@ -78,9 +78,10 @@ local function on_reload()
                         giftEventData = giftSource.GiftTextLineSets[giftEventData.AltGiftTrackEvent]
                     end
                     if onGiftTrack then
+                        -- this gets the linear gift order (although gifts can be given out of order)
                         -- local resourceData = nil
-                        -- for resourceName, resourceAmount in pairs( giftEventData.Cost ) do
-                        --     resourceData = ResourceData[resourceName]
+                        -- for resourceName, resourceAmount in pairs(giftEventData.Cost) do
+                        --     resourceData = game.ResourceData[resourceName]
                         -- end
 
                         if game.GameState.TextLinesRecord[giftEventData.Name] then
@@ -93,6 +94,18 @@ local function on_reload()
                     end
                 end
             end
+            
+            --[[ notes for later...
+            -- Codex_DefaultGiftHint
+            -- Codex_KeepGoingHint
+            -- Codex_LockedActivityHint
+            -- Codex_FishingGiftHint
+            -- Codex_HotSpringsGiftHint
+            -- Codex_TavernaGiftHint
+            -- Codex_FishNextHint
+            -- Codex_UnavailableHint
+            -- a few character-specific hints as well
+            ]]--
 
             local scaleX = math.max(0.05, iconFilled * 0.05)
             local heart = "{!Icons.RelationshipHeartIcon}"
@@ -138,6 +151,6 @@ end
 local loader = reload.auto_single()
 
 -- this runs only when modutil and the game's lua is ready
-modutil.on_ready_final(function()
+modutil.once_loaded.game(function()
     loader.load(on_ready, on_reload)
 end)
