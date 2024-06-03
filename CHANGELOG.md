@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4] - 2024-06-03
+
 ## [0.1.3] - 2024-05-24
 
 ## Fixed
@@ -31,7 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.3...HEAD
+[unreleased]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.4...HEAD
+[0.1.4]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/The-Black-Lodge/JowdayItsComplicated/compare/0.1.0...0.1.1
